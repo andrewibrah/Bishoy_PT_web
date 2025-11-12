@@ -27,17 +27,6 @@ function BookPage() {
         </div>
       </section>
       <Booking />
-      <section className="bg-slate-950 px-4 pb-16">
-        <div className="mx-auto flex max-w-4xl flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.02] p-8">
-          <div>
-            <h2 className="text-2xl font-semibold text-white">Prefer a quick call?</h2>
-            <p className="mt-2 text-white/70">
-              Text or call 646-240-5299. We’ll answer within business hours with the next available in-gym slot.
-            </p>
-          </div>
-          <ContactActions layout="column" />
-        </div>
-      </section>
     </>
   );
 }
