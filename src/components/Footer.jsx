@@ -1,8 +1,6 @@
-function Footer() {
-  const scrollTo = (target) => {
-    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+import { Link } from 'react-router-dom';
 
+function Footer() {
   return (
     <footer className="bg-slate-950 px-4 py-16 text-white">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
@@ -19,17 +17,33 @@ function Footer() {
         </div>
         <div>
           <h4 className="text-lg font-semibold">Quick Links</h4>
-          <div className="mt-3 flex flex-col gap-2 text-white/70">
-            {['about', 'services', 'advantage', 'faq', 'booking'].map((target) => (
-              <button
-                key={target}
-                onClick={() => scrollTo(target)}
-                className="text-left transition hover:text-cyan-300"
-              >
-                {target === 'advantage' ? 'Why Us' : target.charAt(0).toUpperCase() + target.slice(1)}
-              </button>
-            ))}
-          </div>
+          <ul className="mt-3 flex flex-col gap-2 text-white/70">
+            <li>
+              <Link to="/services" className="transition hover:text-cyan-300">
+                Programs &amp; Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/advantage" className="transition hover:text-cyan-300">
+                In-Gym Advantage
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="transition hover:text-cyan-300">
+                Meet Dr. Bishoy
+              </Link>
+            </li>
+            <li>
+              <Link to="/proof" className="transition hover:text-cyan-300">
+                Proof &amp; FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/book" className="transition hover:text-cyan-300">
+                Book / Contact
+              </Link>
+            </li>
+          </ul>
         </div>
         <div>
           <h4 className="text-lg font-semibold">Connect</h4>

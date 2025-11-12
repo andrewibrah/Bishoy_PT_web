@@ -1,11 +1,7 @@
 import { heroFlipWords } from '../data/content.js';
+import ContactActions from './ContactActions.jsx';
 
 function Hero() {
-  const handleBookingClick = (event) => {
-    event.preventDefault();
-    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     <section
       id="hero"
@@ -34,14 +30,7 @@ function Hero() {
           Elite 1-on-1 Physical Therapy for serious athletes in NYC. Evidence-based protocols blended with real-world
           performance coaching.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a href="#booking" className="btn-gradient" onClick={handleBookingClick}>
-            Book Your Assessment Now
-          </a>
-          <a href="tel:646-240-5299" className="btn-secondary">
-            Call: 646-240-5299
-          </a>
-        </div>
+        <ContactActions showText={false} className="mt-0" />
         <p className="mt-6 text-sm font-semibold text-white/70">⚡ Most athletes see results within 2 weeks</p>
       </div>
     </section>

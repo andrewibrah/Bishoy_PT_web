@@ -1,9 +1,9 @@
 export const navLinks = [
-  { label: 'About', target: 'about' },
-  { label: 'Services', target: 'services' },
-  { label: 'Why Us', target: 'advantage' },
-  { label: 'FAQ', target: 'faq' },
-  { label: 'Book Now', target: 'booking' },
+  { label: 'Home', to: '/' },
+  { label: 'Programs & Services', to: '/services' },
+  { label: 'In-Gym Advantage', to: '/advantage' },
+  { label: 'Meet Dr. Bishoy', to: '/about' },
+  { label: 'Proof & FAQ', to: '/proof' },
 ];
 
 export const heroFlipWords = ['RECOVERY', 'PERFORMANCE', 'POTENTIAL'];
