@@ -43,6 +43,11 @@
     @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border border-white/30 rounded-full transition hover:-translate-y-0.5 hover:border-white;
   }
 
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white/80 border border-white/20 rounded-full transition hover:-translate-y-0.5 hover:text-white hover:border-white/60;
+    background-color: transparent;
+  }
+
   .flip-container {
     height: clamp(3rem, 10vw, 6rem);
     overflow: hidden;
@@ -137,4 +142,167 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ——— Custom animation utilities ——— */
+@layer components {
+  /* Stroke-to-fill headline (Concept Two inspired) */
+  .anim-stroke-fill {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    text-shadow: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s, -webkit-text-stroke-color 0.3s;
+    will-change: transform;
+  }
+  .anim-stroke-fill:hover,
+  .group:hover .anim-stroke-fill {
+    transform: scale(1.05);
+    color: #fff;
+    -webkit-text-stroke-color: transparent;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Letter spacing expand (Concept Four inspired) */
+  .anim-letter-expand {
+    letter-spacing: 0.02em;
+    transition: letter-spacing 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .anim-letter-expand:hover,
+  .flip-card:hover .anim-letter-expand,
+  article:hover .anim-letter-expand {
+    letter-spacing: 0.12em;
+    transform: scale(1.03);
+  }
+
+  /* Character wave (Concept Five inspired) */
+  .anim-wave {
+    display: inline-flex;
+    gap: 0.02em;
+  }
+  .anim-wave .char {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+  }
+  .anim-wave:hover .char:nth-child(odd) {
+    transform: translateY(-4px);
+  }
+  .anim-wave:hover .char:nth-child(even) {
+    transform: translateY(4px);
+  }
+
+  /* Character jitter (Concept Six inspired) */
+  .anim-jitter {
+    display: inline-flex;
+    gap: 0.02em;
+  }
+  .anim-jitter .char {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .anim-jitter:hover .char:nth-child(1) { transform: rotate(-4deg) translateY(-2px); }
+  .anim-jitter:hover .char:nth-child(2) { transform: rotate(3deg) translateY(-3px); }
+  .anim-jitter:hover .char:nth-child(3) { transform: rotate(6deg) translateY(2px); }
+  .anim-jitter:hover .char:nth-child(4) { transform: rotate(2deg) translateY(-1px); }
+  .anim-jitter:hover .char:nth-child(5) { transform: rotate(-3deg) translateY(3px); }
+
+  /* Jump-out duplicate text (Concept Seven) */
+  .anim-jump-out {
+    position: relative;
+    display: inline-block;
+  }
+  .anim-jump-out::before {
+    content: attr(data-content);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: rgba(255,255,255,0.8);
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+  }
+  .anim-jump-out:hover::before {
+    animation: jumpOut 0.6s ease forwards;
+  }
+
+  @keyframes jumpOut {
+    0% { opacity: 0; transform: scale(1); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.9); }
+  }
+
+  /* Voltage button styles (simplified) */
+  .voltage-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+  .voltage-cta {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-transform duration-200 ease-out;
+    color: #fff;
+    background: linear-gradient(90deg, #1fb8cd, #ff6b35, #ffd93d, #1fb8cd);
+    background-size: 300% 100%;
+    animation: gradientShift 3s ease infinite;
+    border: 1px solid rgba(255,255,255,0.18);
+    position: relative;
+    z-index: 2;
+  }
+  .voltage-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#glow);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .voltage-button .dots { position: absolute; inset: 0; pointer-events: none; }
+  .voltage-button .dot { position: absolute; width: 4px; height: 4px; background: #fff; border-radius: 9999px; opacity: 0.35; }
+  .voltage-button .dot-1 { top: 6px; left: 10%; }
+  .voltage-button .dot-2 { bottom: 6px; left: 25%; }
+  .voltage-button .dot-3 { top: 4px; right: 22%; }
+  .voltage-button .dot-4 { bottom: 5px; right: 12%; }
+  .voltage-button .dot-5 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+}
+
+/* Animated mail (envelope) simplified styling */
+@layer components {
+  .letter-image { position: relative; width: 180px; height: 120px; }
+  .animated-mail { position: relative; width: 100%; height: 100%; }
+  .animated-mail .body {
+    width: 100%; height: 70%; background: #e6f7fb; position: absolute; bottom: 0; left: 0;
+    border: 1px solid rgba(255,255,255,0.3); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+  }
+  .animated-mail .top-fold {
+    width: 100%; height: 60%; background: #bdefff; position: absolute; top: 0; left: 0; transform-origin: top; transition: transform .4s ease;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border: 1px solid rgba(255,255,255,0.3); border-top-left-radius: 8px; border-top-right-radius: 8px;
+  }
+  .animated-mail .left-fold {
+    position: absolute; left: 0; top: 30%; width: 50%; height: 40%; background: #d6f3fa; clip-path: polygon(0 0, 0 100%, 100% 50%);
+  }
+  .animated-mail .back-fold { position: absolute; inset: 0; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15); }
+  .animated-mail .letter {
+    position: absolute; left: 12%; right: 12%; bottom: 12%; height: 55%; background: #fff; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: transform .4s ease; display: grid; grid-template-rows: auto 1fr auto; overflow: hidden;
+  }
+  .animated-mail .letter-border { height: 6px; background: linear-gradient(90deg, #1fb8cd, #ff6b35); }
+  .animated-mail .letter-title { height: 10px; margin: 10px; background: #eaecee; border-radius: 2px; }
+  .animated-mail .letter-context { margin: 0 10px 10px; height: 26px; background: #f2f3f5; border-radius: 2px; }
+  .animated-mail .letter-stamp { justify-self: end; margin: 10px; width: 20px; height: 20px; background: #cffafe; border-radius: 2px; }
+  .animated-mail .letter-stamp-inner { width: 100%; height: 100%; background: #22d3ee; opacity: .3; }
+  .letter-image:hover .top-fold { transform: rotateX(50deg); }
+  .letter-image:hover .letter { transform: translateY(-22%); }
+  .letter-image .shadow { position: absolute; left: 0; right: 0; bottom: -2px; margin: auto; width: 60%; height: 8px; background: rgba(0,0,0,0.3); filter: blur(8px); border-radius: 9999px; transition: width .4s ease, opacity .4s ease; }
+  .letter-image:hover .shadow { width: 70%; opacity: 0.8; }
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .voltage-svg { display: none; }
 }

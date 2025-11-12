@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero.jsx';
+import AnimatedText from '../components/AnimatedText.jsx';
 import ContactActions from '../components/ContactActions.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
@@ -43,10 +44,10 @@ function Home() {
                 className="flex flex-col rounded-2xl border border-white/5 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-6"
               >
                 <p className="text-sm font-semibold uppercase tracking-wide text-cyan-300/80">{card.eyebrow}</p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">{card.title}</h3>
+                <AnimatedText as="h3" variant="wave" text={card.title} className="mt-3 text-2xl font-semibold text-white" />
                 <p className="mt-3 flex-1 text-white/70">{card.copy}</p>
                 <Link to={card.to} className="mt-6 inline-flex items-center gap-2 font-semibold text-cyan-300">
-                  Explore →
+                  <AnimatedText as="span" variant="jitter" text="Explore →" />
                 </Link>
               </article>
             ))}
@@ -55,7 +56,10 @@ function Home() {
             <p className="text-lg text-white/70">
               Ready when you are. Choose the path that matches your next best move and we will take it from there.
             </p>
-            <ContactActions className="mt-8" />
+            <ContactActions
+              className="mt-8 justify-center"
+              explore={{ to: '/services', label: 'Explore Programs' }}
+            />
           </div>
         </div>
       </section>

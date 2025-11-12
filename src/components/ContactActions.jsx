@@ -1,24 +1,41 @@
 import { Link } from 'react-router-dom';
+import VoltageButton from './VoltageButton.jsx';
 
-function ContactActions({ layout = 'row', showText = true, className = '' }) {
-  const directionClass = layout === 'column' ? 'flex-col' : 'flex-row';
+function ContactActions({
+  layout = 'row',
+  className = '',
+  explore,
+  bookingUrl = 'https://maximizedphysicaltherapysportsrehab.square.site/',
+  phoneNumber = '646-240-5299',
+  showBook = true,
+  showCall = true,
+  showText = true,
+}) {
+  const layoutClasses = layout === 'column' ? 'flex-col items-stretch' : 'flex-row flex-wrap';
+  const actionWidth = layout === 'column' ? 'w-full' : 'w-full sm:w-auto';
 
   return (
-    <div className={`flex flex-wrap items-center justify-center gap-4 ${directionClass} ${className}`}>
-      <Link to="/book" className="btn-gradient w-full sm:w-auto">
-        Book Your Assessment Now
-      </Link>
-      <a href="tel:646-240-5299" className="btn-secondary w-full sm:w-auto">
-        Call: 646-240-5299
-      </a>
-      {showText && (
-        <a
-          href="sms:646-240-5299"
-          className="btn-secondary w-full border-cyan-300/60 text-cyan-100 sm:w-auto"
-        >
-          Text: 646-240-5299
+    <div className={`flex gap-4 ${layoutClasses} ${className}`}>
+      {explore ? (
+        <Link to={explore.to} className={`btn-secondary ${actionWidth}`}>
+          {explore.label}
+        </Link>
+      ) : null}
+      {showBook ? (
+        <VoltageButton href={bookingUrl} className={actionWidth}>
+          Book Now
+        </VoltageButton>
+      ) : null}
+      {showCall ? (
+        <a href={`tel:${phoneNumber}`} className={`btn-outline ${actionWidth}`}>
+          Call {phoneNumber}
         </a>
-      )}
+      ) : null}
+      {showText ? (
+        <a href={`sms:${phoneNumber}`} className={`btn-outline ${actionWidth}`}>
+          Text {phoneNumber}
+        </a>
+      ) : null}
     </div>
   );
 }
