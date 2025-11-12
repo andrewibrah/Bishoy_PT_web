@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Advantage from '../components/Advantage.jsx';
-import ContactActions from '../components/ContactActions.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
@@ -43,12 +42,11 @@ function AdvantagePage() {
             <Link to="/about" className="btn-secondary">
               Meet Dr. Bishoy
             </Link>
-            <Link to="/book" className="btn-gradient">
-              Book Your Session
-            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
           </div>
         </div>
-        <ContactActions className="mt-12" />
       </section>
     </>
   );

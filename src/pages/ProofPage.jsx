@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Testimonials from '../components/Testimonials.jsx';
 import FAQ from '../components/FAQ.jsx';
-import ContactActions from '../components/ContactActions.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import { testimonials, faqs } from '../data/content.js';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
@@ -70,19 +69,18 @@ function ProofPage() {
           <div>
             <h2 className="text-2xl font-semibold text-white">Ready to make a move?</h2>
             <p className="mt-2 text-white/70">
-              Book your evaluation or text us questions. You can also loop back to Programs if you need a refresher.
+              Book your evaluation or loop back to Programs if you need a refresher.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
             <Link to="/services" className="btn-secondary">
               Back to Programs
             </Link>
-            <Link to="/book" className="btn-gradient">
-              Book / Contact
-            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
           </div>
         </div>
-        <ContactActions className="mt-12" layout="column" />
       </section>
     </>
   );

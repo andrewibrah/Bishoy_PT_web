@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Services from '../components/Services.jsx';
-import ContactActions from '../components/ContactActions.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
@@ -47,12 +46,11 @@ function ServicesPage() {
             <Link to="/advantage" className="btn-secondary">
               Explore In-Gym Advantage
             </Link>
-            <Link to="/book" className="btn-gradient">
-              Book Your Session
-            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
           </div>
         </div>
-        <ContactActions className="mt-12" layout="column" />
       </section>
     </>
   );
