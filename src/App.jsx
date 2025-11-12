@@ -1,28 +1,32 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navigation from './components/Navigation.jsx';
-import Hero from './components/Hero.jsx';
-import Services from './components/Services.jsx';
-import Advantage from './components/Advantage.jsx';
-import About from './components/About.jsx';
-import Testimonials from './components/Testimonials.jsx';
-import FAQ from './components/FAQ.jsx';
-import Booking from './components/Booking.jsx';
 import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import ServicesPage from './pages/ServicesPage.jsx';
+import AdvantagePage from './pages/AdvantagePage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import ProofPage from './pages/ProofPage.jsx';
+import BookPage from './pages/BookPage.jsx';
 
 function App() {
   return (
-    <div className="bg-slate-950 text-white">
-      <Navigation />
-      <main className="pt-24">
-        <Hero />
-        <Services />
-        <Advantage />
-        <About />
-        <Testimonials />
-        <FAQ />
-        <Booking />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="bg-slate-950 text-white min-h-screen">
+        <Navigation />
+        <main className="pt-24">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/advantage" element={<AdvantagePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/proof" element={<ProofPage />} />
+            <Route path="/book" element={<BookPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
