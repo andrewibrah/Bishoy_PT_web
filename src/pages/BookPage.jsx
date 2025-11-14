@@ -2,6 +2,7 @@ import Booking from '../components/Booking.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 import AnimatedMail from '../components/AnimatedMail.jsx';
+import BookingForm from '../components/BookingForm.jsx';
 
 function BookPage() {
   useDocumentMeta({
@@ -29,6 +30,7 @@ function BookPage() {
           </div>
         </div>
       </section>
+      <BookingForm />
       <Booking />
     </>
   );
