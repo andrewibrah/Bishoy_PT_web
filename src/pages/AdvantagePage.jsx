@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import Advantage from '../components/Advantage.jsx';
-import ContactActions from '../components/ContactActions.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
+import ContactActions from '../components/ContactActions.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
 function AdvantagePage() {
@@ -39,16 +38,8 @@ function AdvantagePage() {
               program long after the pain fades.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/about" className="btn-secondary">
-              Meet Dr. Bishoy
-            </Link>
-            <Link to="/book" className="btn-gradient">
-              Book Your Session
-            </Link>
-          </div>
+          <ContactActions explore={{ to: '/about', label: 'Meet Dr. Bishoy' }} className="justify-start" />
         </div>
-        <ContactActions className="mt-12" />
       </section>
     </>
   );

@@ -1,16 +1,18 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Navigation from './components/Navigation.jsx';
-import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 import AdvantagePage from './pages/AdvantagePage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ProofPage from './pages/ProofPage.jsx';
 import BookPage from './pages/BookPage.jsx';
+import Navigation from './components/Navigation.jsx';
+import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="bg-slate-950 text-white min-h-screen">
         <Navigation />
         <main className="pt-24">
