@@ -1,7 +1,7 @@
 import Booking from '../components/Booking.jsx';
-import ContactActions from '../components/ContactActions.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
+import AnimatedMail from '../components/AnimatedMail.jsx';
 
 function BookPage() {
   useDocumentMeta({
@@ -24,6 +24,9 @@ function BookPage() {
           <p className="text-lg text-white/70">
             Book online, text the studio, or call directly. This page is the fastest path to get your session confirmed.
           </p>
+          <div className="mt-4 hidden lg:flex justify-end">
+            <AnimatedMail />
+          </div>
         </div>
       </section>
       <Booking />

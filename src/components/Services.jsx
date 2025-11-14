@@ -18,7 +18,7 @@ function ServiceCard({ icon, title, benefit, description }) {
       <div className="flip-card-inner min-h-[280px]">
         <div className="flip-card-front">
           <div className="text-4xl">{icon}</div>
-          <h3 className="mt-4 text-2xl font-semibold">{title}</h3>
+          <h3 className="mt-4 text-2xl font-semibold anim-letter-expand">{title}</h3>
           <p className="mt-3 text-lg text-cyan-200/80">{benefit}</p>
           <p className="mt-4 text-sm text-white/60">Click to learn more →</p>
         </div>

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import Services from '../components/Services.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
+import ContactActions from '../components/ContactActions.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
 function ServicesPage() {
@@ -42,6 +42,9 @@ function ServicesPage() {
               expect on day one.
             </p>
           </div>
+<<<<<<< HEAD
+          <ContactActions explore={{ to: '/advantage', label: 'Explore In-Gym Advantage' }} className="justify-start" />
+=======
           <div className="flex flex-wrap gap-4">
             <Link to="/advantage" className="btn-secondary">
               Explore In-Gym Advantage
@@ -50,6 +53,7 @@ function ServicesPage() {
               Book Now
             </a>
           </div>
+>>>>>>> main
         </div>
       </section>
     </>

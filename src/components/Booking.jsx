@@ -1,3 +1,5 @@
+import ContactActions from './ContactActions.jsx';
+
 function Booking() {
   return (
     <section id="booking" className="bg-gradient-to-br from-cyan-500/20 via-slate-950 to-slate-900 px-4 py-24">
@@ -9,19 +11,11 @@ function Booking() {
         <p className="mt-4 text-lg text-white/70">
           Stop settling for average results. Get the elite, individualized care you deserve.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://maximizedphysicaltherapysportsrehab.square.site/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-gradient"
-          >
-            Book Online Now
-          </a>
-          <a href="sms:646-240-5299" className="btn-secondary">
-            Text: 646-240-5299
-          </a>
-        </div>
+        <ContactActions
+          layout="column"
+          className="mt-10"
+          explore={{ to: '/services', label: 'Explore Programs' }}
+        />
         <p className="urgency-badge">⚠️ Limited availability - 1-on-1 sessions only</p>
       </div>
     </section>

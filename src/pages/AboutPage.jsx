@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import About from '../components/About.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
+import ContactActions from '../components/ContactActions.jsx';
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js';
 
 function AboutPage() {
@@ -37,6 +37,9 @@ function AboutPage() {
               Head to the Proof &amp; FAQ page to see how other NYC athletes solved the exact issues you are facing now.
             </p>
           </div>
+<<<<<<< HEAD
+          <ContactActions explore={{ to: '/proof', label: 'Proof & FAQ' }} className="justify-start" />
+=======
           <div className="flex flex-wrap gap-4">
             <Link to="/proof" className="btn-secondary">
               Proof &amp; FAQ
@@ -45,6 +48,7 @@ function AboutPage() {
               Book Now
             </a>
           </div>
+>>>>>>> main
         </div>
       </section>
     </>
