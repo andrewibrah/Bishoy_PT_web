@@ -72,7 +72,18 @@ function ProofPage() {
               Book your evaluation or loop back to Programs if you need a refresher.
             </p>
           </div>
+<<<<<<< HEAD
           <ContactActions explore={{ to: '/services', label: 'Back to Programs' }} className="justify-start" />
+=======
+          <div className="flex flex-wrap gap-4">
+            <Link to="/services" className="btn-secondary">
+              Back to Programs
+            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
+          </div>
+>>>>>>> main
         </div>
       </section>
     </>

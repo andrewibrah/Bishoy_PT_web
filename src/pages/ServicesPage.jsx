@@ -42,7 +42,18 @@ function ServicesPage() {
               expect on day one.
             </p>
           </div>
+<<<<<<< HEAD
           <ContactActions explore={{ to: '/advantage', label: 'Explore In-Gym Advantage' }} className="justify-start" />
+=======
+          <div className="flex flex-wrap gap-4">
+            <Link to="/advantage" className="btn-secondary">
+              Explore In-Gym Advantage
+            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
+          </div>
+>>>>>>> main
         </div>
       </section>
     </>

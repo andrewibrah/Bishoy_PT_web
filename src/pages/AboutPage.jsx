@@ -37,7 +37,18 @@ function AboutPage() {
               Head to the Proof &amp; FAQ page to see how other NYC athletes solved the exact issues you are facing now.
             </p>
           </div>
+<<<<<<< HEAD
           <ContactActions explore={{ to: '/proof', label: 'Proof & FAQ' }} className="justify-start" />
+=======
+          <div className="flex flex-wrap gap-4">
+            <Link to="/proof" className="btn-secondary">
+              Proof &amp; FAQ
+            </Link>
+            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
+              Book Now
+            </a>
+          </div>
+>>>>>>> main
         </div>
       </section>
     </>
