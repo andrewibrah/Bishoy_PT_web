@@ -38,18 +38,7 @@ function AdvantagePage() {
               program long after the pain fades.
             </p>
           </div>
-<<<<<<< HEAD
           <ContactActions explore={{ to: '/about', label: 'Meet Dr. Bishoy' }} className="justify-start" />
-=======
-          <div className="flex flex-wrap gap-4">
-            <Link to="/about" className="btn-secondary">
-              Meet Dr. Bishoy
-            </Link>
-            <a href="https://maximizedphysicaltherapysportsrehab.square.site/" target="_blank" rel="noreferrer" className="btn-gradient">
-              Book Now
-            </a>
-          </div>
->>>>>>> main
         </div>
       </section>
     </>
